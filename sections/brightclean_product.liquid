@@ -1,0 +1,54 @@
+{% if product.metafields.custom_fields["benefit_collection"] != blank %}
+  {% assign collection_ref = collections[product.metafields.custom_fields["benefit_collection"]] %}
+{% endif %}
+{% if collection_ref != blank %}
+<section class="ProductCollectionBenefits image-with-text2 image-right" data-section-id="{{ section.id }}">
+  <div class="inner">
+    {% if product.metafields.custom_fields["benefit_collection_hero_image"] != blank %}
+      <div class="image__image" data-animation-frame-count="{{animation_frame_count}}">
+        <img src="{{ product.metafields.custom_fields["benefit_collection_hero_image"] }}" alt="{{ collection_ref.metafields.custom_fields["benefit_collection_title"] }}"/>
+      </div>
+    {% endif %}
+    <div class="image-with-text__text">
+      <div class="inner">
+        <h2>  {{ collection_ref.metafields.custom_fields["benefit_collection_title"] }}</h2>
+        <div class="buttonn">
+          	<a href="{{section.settings.button_link}}" class="button outline large">{{section.settings.button_label}}</a>
+          </div>
+      
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+<style>
+ #shopify-section-brightclean_product .image-with-text2 .image-with-text__text .inner h2{max-width:100%;}
+</style>
+
+{% schema %}
+  {
+    "name": "Bright Clean",
+    "presets": [
+      {
+        "name": "Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+	 {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Optional button"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }],
+    "presets": [{
+        "name": "brightcleaan",
+        "category": "Content"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,134 @@
+<section class="image-with-text" >
+  {% capture image_layout %}
+    <div class="image-with-text__image gg" style="z-index:7 !important;">
+      {% if section.settings.image != blank %}
+        {% include 'responsive-image' with
+          image: section.settings.image,
+          max_width: 900,
+          max_height: 900
+        %}
+      {% else %}
+        {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+  {% endcapture %}
+
+  {% if section.settings.layout == 'left' %}
+    {{ image_layout }}
+  {% endif %}
+
+  <div class="image-with-text__text title-holder " >
+    {% if section.settings.title != blank %}
+               
+      <h1 style="font-weight:600;font-family:'Khand';font-size:50px !important;">{{ section.settings.title | escape }}</h1>
+     <h4 style="font-family:'Khand';font-size:28px !important;color:black;margin-top:5px;">{{ section.settings.title1 }}</h4>
+    {% endif %}
+    {% if section.settings.text != blank %}
+    <div class="p4" style="padding-left:70px;padding-right:70px;color:black;" ><p  style="font-size:21 !important;padding-left:50px;padding-right:50px;color:black;">{{ section.settings.text }}</p></div>
+    {% endif %}
+    {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}">
+        {{ section.settings.button_label | escape }}
+      </a>
+    {% endif %}
+  </div>
+
+  {% if section.settings.layout == 'right' %}
+    {{ image_layout }}
+  {% endif %}
+</section>
+<style>
+ div#shopify-section-second-section{
+   
+   margin-top:-150px;
+ }
+  
+section.image-with-text {
+    height: 100%;
+  margin-bottom:100px;
+}
+  #ImageWrapper-533617246386-0{
+  
+    width:100%;
+    max-height:100%;
+
+  }
+    @media(max-width: 600px) {
+      
+      
+      
+ .p4 {
+   padding-left:20px !important;padding-right:20px !important;
+  }
+      .gg {
+
+    
+    min-width: 100% !important;
+}
+}
+  p{
+    color:black;
+    font-size:21px;
+  }
+</style>
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "Image alignment",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "Left"
+          },
+          {
+            "value": "right",
+            "label": "Right"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },{
+        "type": "text",
+        "id": "title1",
+        "label": "Sub_Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

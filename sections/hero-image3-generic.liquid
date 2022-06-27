@@ -1,0 +1,114 @@
+{% for block in section.blocks %}
+  {% if page.handle == block.settings.thepage %}
+<section class="HomeHeroscience">
+  <style>
+    .HomeHeroscience .image__image .image {
+      background-image: url({{block.settings.mobile_image | img_url: 'master' }}) !important;
+    }
+
+    @media(min-width: 768px){
+      .HomeHeroscience .image__image .image {
+        background-image: url({{block.settings.image | img_url: 'master' }}) !important;
+      }      
+    }
+  </style>
+  <div class="inner content_width">
+    <div class="image__image sameheight">
+        {% if block.settings.image != blank %}
+          <div class="image"></div>
+        {% else %}
+          
+        {% endif %}
+    </div>
+
+      <div class="image-with-text__text sameheight">
+        <div class="inner">
+          <div class="title-holder width___science1">
+            {% if block.settings.subtitle != blank %}
+              <h2>{{ block.settings.subtitle }}</h2>
+            {% endif %}
+            {% if block.settings.title != blank %}
+              <h1>{{ block.settings.title }}</h1>
+            {% endif %}
+            {% if block.settings.text != blank %}
+              {{ block.settings.text }}
+            {% endif %}
+          </div>
+          {% if block.settings.button_label !=blank%}
+          <div class="buttonn">
+          	<a href="{{block.settings.button_link}}" class="button outline large">{{block.settings.button_label}}</a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+  </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+{% schema %}
+  {
+    "name": "Hero Right Image_3",
+    "presets": [
+      {
+        "name": "Press Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+	  
+    ],
+    "blocks": [
+    {
+    "type": "select",
+    "name": "PAGE EXTRA FIELDS",
+    "settings": [
+    {
+    "id": "thepage",
+    "type": "page",
+    "label": "ASSIGN PAGE FOR DATA"
+    },{
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub-Title"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },      
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },{
+        "type": "text",
+        "id": "button_label",
+        "label": "Button label",
+        "default": "Optional button"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      }]
+    }
+    ],
+    "presets": [{
+        "name": "Hero Right Image_3",
+        "category": "Content"
+    }]
+  }
+{% endschema %}

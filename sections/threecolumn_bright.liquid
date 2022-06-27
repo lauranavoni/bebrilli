@@ -1,0 +1,116 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Collection list" section in the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the collection list section
+  - Collection
+{%- endcomment -%}
+<section class="text_column">
+  <div class="inner content_width">
+
+
+    <div class="threeitem">
+      {% for block in section.blocks %}
+        <div class="CollectionListItem">
+            <div class="img-wrap_1">
+              {%- assign image_object = block.settings.image_section -%}
+                <img src="{{image_object | img_url: 'master' }}"/>
+            </div>
+            <div class="pwrap">
+              
+              {%- if block.settings.text != blank -%}
+                  {{ block.settings.text }}
+              {%- endif -%}
+            </div>
+        </div>
+      {% endfor %}
+
+      {% if section.blocks.size == 0 %}
+        {% include 'no-blocks' %}
+      {% endif %}
+
+      
+    </div>
+  </div>
+</section>
+
+<style>
+  
+  #shopify-section-threecolumn_bright .text_column{padding-top:50px;background-color:#F8F8F8;}
+  
+  .pwrap p{
+    text-align: center;
+    width:80%; margin:0 auto;
+}}
+  @media (min-width: 1200px)
+.threeitem {
+    max-width: 1200px;
+}
+@media (min-width: 1024px)
+.threeitem{
+    margin-top: 30px;
+    max-width: 864px;
+}
+@media (min-width: 768px)
+
+.threeitem {
+    max-width: 576px;
+}
+.threeitem {
+    margin: 20px auto 15px;
+    display: flex;
+}
+  
+  @media only screen and (max-width: 600px) {
+    #shopify-section-threecolumn_bright .text_column{padding-top:20px;}
+   .threeitem{display:block}
+    .pwrap p{width:100%;}
+}
+
+</style>
+{% schema %}
+  {
+    "name": "Text-column BrightClean",
+    "max_blocks": 12,
+    "settings": [
+     
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "three column",
+        "settings": [
+          {
+            "label": "Image",
+            "id": "image_section",
+            "type": "image_picker"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text to share information about your collection.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Text-column BrightClean",
+        "category": "Science",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

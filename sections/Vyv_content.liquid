@@ -1,0 +1,81 @@
+<div class= "parentcolor">
+  <div class="inner content_width">
+    <div class="image_text mainflex">
+      <div class="flexone">
+      {% if section.settings.image != blank %}
+      <div class="small--hide ">
+        <img src="{{section.settings.image | img_url:'1024x'}}"/>
+      </div>
+      {% endif %}
+      {% if section.settings.mobimage != blank %}
+      <div class="medium-up--hide image_part">
+        <img src="{{section.settings.mobimage | img_url:'1024x'}}"/>
+      </div>
+      {% endif %}
+      </div>
+      <div class="flextwo">
+        {% if section.settings.title != blank %}
+        <h1>{{section.settings.title}}</h1>
+        {% endif %}
+        {% if section.settings.description != blank %}
+        <p>{{section.settings.description}}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .mainflex{display:flex;align-items:center;}
+  .flexone{flex:25%;}
+  .flexone img{width:40%;}
+  .flexone .small--hide {text-align:center;}
+  .flextwo{flex:70%; padding-left:80px;}
+  .flextwo h1{font-size: 40px; text-align:left;}
+  .content_width{margin-top: 30px;margin-bottom:20px; padding-top:30px;padding-bottom:30px;}
+    @media only screen and (max-width: 767px) {
+      .flextwo{padding:20px;padding-bottom:0;}
+      .mainflex{display:block;}
+      #shopify-section-Vyv_content .small--hide {display:block;}
+      .content_width{padding-bottom:0;margin-bottom:0;}
+    }
+</style>
+
+{% schema %}
+  {
+    "name": "Hero Antimicrobial",
+    "settings": [
+		{
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+	  {
+        "type": "image_picker",
+        "id": "mobimage",
+        "label": "Mobile Image"
+      },
+		{
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+	{
+        "type": "text",
+        "id": "description",
+        "label": "Description"
+      }
+],
+"presets": [{
+        "name": "Hero Antimicrobial",
+        "category": "Antimicrobial"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

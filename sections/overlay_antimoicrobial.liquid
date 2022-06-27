@@ -1,0 +1,73 @@
+<div class="full_width">
+  <div class="image_text">
+    {% if section.settings.image != blank %}
+    <div class="small--hide image_part">
+      <img src="{{section.settings.image | img_url:'1024x'}}"/>
+    </div>
+    {% endif %}
+    {% if section.settings.mobimage != blank %}
+    <div class="medium-up--hide image_part">
+      <img src="{{section.settings.mobimage | img_url:'1024x'}}"/>
+    </div>
+    {% endif %}
+    <div class="text_part" style="font-weight: 600;
+    font-size: 50px !important;
+    font-family: 'Khand',sans-serif;letter-spacing:
+-0.5px;">
+      {% if section.settings.title != blank %}
+      <h1  style="font-weight: 600;
+    font-size: 50px !important;
+    font-family: 'Khand',sans-serif;letter-spacing:
+-0.5px;">{{section.settings.title}}*</h1>
+      {% endif %}
+      {% if section.settings.subtitle != blank %}
+      <p>{{section.settings.subtitle}}</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+        
+        
+
+    
+{% schema %}
+  {
+    "name": "Hero Antimicrobial",
+    "settings": [
+		{
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+	  {
+        "type": "image_picker",
+        "id": "mobimage",
+        "label": "Mobile Image"
+      },
+		{
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+	{
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      }
+],
+"presets": [{
+        "name": "Hero Antimicrobial",
+        "category": "Antimicrobial"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

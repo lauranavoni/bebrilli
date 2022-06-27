@@ -1,0 +1,103 @@
+<div class="inner content_width margin_top_content">
+  <div class="image_text flexcontent_virus">
+   <div class="flexsubsection">
+
+   {% for block in section.blocks %}
+    {% if forloop.index <=3 %}
+      {% if block.settings.title != blank %}
+      <h3 class= "virushead">{{block.settings.title}}</h3>
+      {% endif %}
+      {% if block.settings.description != blank %}
+      <p>{{block.settings.description}}</p>
+      {% endif %}
+    {% endif %}
+    {%endfor%}
+    </div>
+    <div class="flexsubsection">
+     {% for block in section.blocks %}
+     {% if forloop.index >3 %}
+      {% if block.settings.title != blank %}
+      <h3  class= "virushead">{{block.settings.title}}</h3>
+      {% endif %}
+      {% if block.settings.description != blank %}
+      <p>{{block.settings.description}}</p>
+      {% endif %}
+ 	  {% endif %}
+      {%endfor%}
+    </div>
+
+  </div>
+  <center>{{section.settings.disclaimer}}</center>
+</div>
+
+
+<style>
+  .margin_top_content h3 {
+    font-size: 50px;
+    font-family: Khand,sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0;
+    letter-spacing: 0;
+}
+  .margin_top_content center p{font-size:10px;}
+  .margin_top_content{margin-top:50px; max-width:1000px}
+  .flexcontent_virus{display:flex;}
+  .flexsubsection{flex: 50%;}
+  .virushead{color: #937fba;text-transform:capitalize;margin-bottom:20px;}
+  @media only screen and (max-width: 767px) {
+   h3.virushead{
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: -.01em;
+    line-height: 1;}
+    #shopify-section-viruses_flex .flexcontent_virus{display:block;}
+    #shopify-section-antimicrobial_flowchart .flexcontent_virus{display:flex;} 
+    #shopify-section-viruses_flex{padding:20px}
+    .content_width{margin-top:60px!important;}
+  }
+  
+</style>
+{% schema %}
+  {
+    "name": "Virus Flex",
+    "settings": [
+	 {
+        "type": "richtext",
+        "id": "disclaimer",
+        "label": "Disclaimer"
+      }
+    ],
+	
+      "blocks": [
+      {
+      "type": "select",
+      "name": "Subcontent",
+      "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+	{
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      }
+	]
+  }
+  ],
+    "presets": [{
+        "name": "Virus Flex",
+        "category": "Antimicrobial"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

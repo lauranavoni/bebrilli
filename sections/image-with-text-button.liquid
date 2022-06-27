@@ -1,0 +1,134 @@
+<section class="HomeHero">
+  <style>
+    .HomeHero>.inner {
+    max-width: 100% !important;
+      margin-bottom:150px;
+    }
+    .HomeHero .image__image .image {
+      background-image: url('{{section.settings.mobile_image | img_url: 'master' }}');
+         background-size: cover;
+    
+    }
+   
+}@media(min-width: 800px){
+      .HomeHero .image__image .image {
+     
+            background-size: cover;  flex:50%;
+      }
+    @media(min-width: 768px){
+      .HomeHero .image__image .image {
+        background-image: url('{{section.settings.image | img_url: 'master' }}');
+            background-size: cover;
+      }   
+       @media(min-width: 992px){
+      .HomeHero .image__image .image {
+        
+            background-size: cover;      flex:50%;
+      } 
+    }
+       @media(min-width: 1200px){
+      .HomeHero .image__image .image {
+        
+            background-size: cover;     flex:50%;
+      } 
+    }
+  </style>
+  <div class="inner">
+    <a {% if section.settings.button_url != blank %}href="{{ section.settings.button_url}}" >{% endif %}
+      <div class="image__image">
+        {% if section.settings.image != blank %}
+          <div class="image"></div>
+        {% else %}
+          
+        {% endif %}
+      </div>
+
+      <div class="image-with-text__text">
+        <div class="inner">
+          <div class="title-holder" >
+            {% if section.settings.title != blank %}
+            <h4 style="font-family:'Khand';font-size:28px !important;color:black;margin-bottom:5px;">{{ section.settings.title1 }}</h4>
+              <h1 style="font-weight:600;font-family:'Khand';font-size:50px !important;">{{ section.settings.title }}</h1>
+            {% endif %}
+            {% if section.settings.text != blank %}
+            <p style="font-family:'Roboto';font-size:21px !important;font-weight:100 !important;">{{ section.settings.text }}</p>
+            {% endif %}
+            {% if section.settings.button_label != blank and section.settings.button_url != blank %}
+              <span class="button outline large" style="padding-top:8px;padding-bottom:5px;font-family:'Khand';font-size:20px !important;border-radius:5px;">
+                {{ section.settings.button_label }}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  
+
+</section>
+
+<style>
+  p{
+    font-weight:100 !important;
+  }
+
+.HomeHero .image-with-text__text .inner .title-holder{
+    display: inherit !important;
+ 
+
+}
+
+</style>
+
+{% schema %}
+  {
+    "name": "Home Hero",
+    "presets": [
+      {
+        "name": "Press Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }, {
+        "type": "text",
+        "id": "title1",
+        "label": "Sub_Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      }
+    ],
+    "presets": [{
+        "name": "Home Hero",
+        "category": "Content"
+    }]
+  }
+{% endschema %}

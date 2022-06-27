@@ -1,0 +1,104 @@
+{%- comment -%}
+  This is a required section for the Shopify Theme Store.
+  It is available when you add "Collection list" section in the Theme Editor.
+
+  Theme Store required settings
+  - Heading: title of the collection list section
+  - Collection
+{%- endcomment -%}
+<section class="Icons">
+  <div class="inner">
+    <div class="collection-items slidericon">
+      {% for block in section.blocks %}
+        <div class="CollectionItem">
+            <div class="img-wrap">
+                <img class="slimage" src="{{block.settings.image }}"/>
+            </div>
+            <div class="text-wrap wrte">
+              {%- if block.settings.text != blank -%}
+                  {{ block.settings.text }}
+              {%- endif -%}
+            </div>
+        
+        </div>
+      {% endfor %}
+
+      {% if section.blocks.size == 0 %}
+        {% include 'no-blocks' %}
+      {% endif %}
+
+
+    </div>
+  </div>
+</section>
+<script>
+(function($) {
+    $(document).ready(function() {
+        $('.slidericon').slick({
+           slidesToShow:6,
+		   slidesToScroll:1,
+           lazyLoad:"ondemand",autoplay:!1,arrows:!0,autoplaySpeed:4e3,adaptiveHeight:!1,draggable:!1,infinite:!0,dots:!1,fade:!1
+          ,responsive:[{breakpoint:768
+,settings:{slidesToShow:1
+,slidesToScroll:1
+,infinite:!0
+,arrows:!0}}]
+        });
+    });
+	
+})( jQuery );
+</script>
+<style>
+  .slimage{height:120px; margin:0 auto;}
+  #shopify-section-icons-bright{max-width: 1040px;padding: 26px 26px 52px;
+    margin: 0 auto;}
+  #shopify-section-icons-bright .CollectionListItem .img-wrap img{display:block;}
+   #shopify-section-icons-bright .CollectionListItem .text-wrap{background-color:transparent!important;text-align:center;margin:0 auto;}
+  .wrte p{text-align:center}
+</style>
+
+{% schema %}
+  {
+    "name": "Icon list",
+    "max_blocks": 12,
+    "settings": [
+     
+    ],
+    "blocks": [
+      {
+        "type": "collection",
+        "name": "Collection",
+        "settings": [
+          {
+            "label": "image",
+            "id": "image",
+            "type": "text"
+          },
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text",
+            "default": "<p>Use this text to share information about your collection.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Icon list",
+        "category": "Collection",
+        "blocks": [
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          },
+          {
+            "type": "collection"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

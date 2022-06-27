@@ -1,0 +1,67 @@
+<div class="cleaning-button" style="width:100%;height:200px;">
+
+<a
+  type="button"
+  name="add"
+  {% if current_variant.metafields.custom_fields.alternative_url != blank %}
+    href="{{ current_variant.metafields.custom_fields.alternative_url }}"
+  {%- else -%}
+    href="{{ product.metafields.custom_fields.alternative_url }}"
+  {%- endif -%}
+  target="_blank"
+  class="button large buy-now"
+  data-alternative-url
+>
+  <span class="button-text" style = "text-transform:capitalize;font-weight: 200;">
+    {{ 'products.product.buy_now' | t }}
+  </span>
+</a><br><br>
+  <a
+  type="button"
+  name="add"
+  {% if current_variant.metafields.custom_fields.alternative_link2 != blank %}
+    href="{{ current_variant.metafields.custom_fields.alternative_link2 }}"
+  {%- else -%}
+    href="{{ product.metafields.custom_fields.alternative_link2 }}"
+  {%- endif -%}
+  target="_blank"
+  class="button large buy-now"
+  data-alternative-url
+>
+  <span class="button-text" style = "text-transform:capitalize;font-weight: 200;">
+    Buy now at Wayfair.com
+  </span>
+</a><br><br>
+  <a
+  type="button"
+  name="add"
+  {% if current_variant.metafields.custom_fields.alternative_link3 != blank %}
+    href="{{ current_variant.metafields.custom_fields.alternative_link3 }}"
+  {%- else -%}
+    href="{{ product.metafields.custom_fields.alternative_link3 }}"
+  {%- endif -%}
+  target="_blank"
+  class="button large buy-now"
+  data-alternative-url
+>
+  <span class="button-text" style = "text-transform:capitalize;font-weight: 200;">
+    Buy now at HomeDepot.com
+  </span>
+</a>
+</div>
+<script type="text/javascript">
+  window.variantLinks={
+    {%- for _v in product.variantlinks -%}
+    {{ _v.id }}: {{ _v.metafields.custom_fields.alternative_url | json }},
+    
+   
+      {{ _v.id }}: {{ _v.metafields.custom_fields.alternative_link2 | json }},
+   
+     
+     {{ _v.id }}: {{ _v.metafields.custom_fields.alternative_link3 | json }}
+    
+     
+    
+    {%- endfor -%}
+  }
+</script>

@@ -1,0 +1,34 @@
+<div class="slideshow-wrap active">
+  <div class="slideshow">
+    {% for image in product.images %}
+    {% if product.tags contains 'buttonBClean' %}
+     {% if image.alt contains "main" %}
+        <div class="slide"><img src="{{ image.src | img_url: '1200x' }}" alt="{{ image.alt }}"/></div>    
+     {% endif %}
+    {%else%}	
+      {% if image.alt contains "gallery" %}
+        <div class="slide"><img src="{{ image.src | img_url: '1200x' }}" alt="{{ image.alt }}"/></div>    
+      {% endif %}
+    {%endif%}
+    
+    {% endfor %}
+  </div>
+
+  {% assign size = product.images | size %}
+  {% if size > 1 %}
+    <div class="thumbnails">
+      {% for image in product.images %}
+      {% if product.tags contains 'buttonBClean' %}
+      
+     {% if image.alt contains "main"%}
+          <span class="thumb"><img src="{{ image.src | img_url: '200x' }}" alt="{{ image.alt }}"/></span>    
+     {% endif %}
+    {%else%}
+        {% if image.alt contains "gallery" %}
+          <span class="thumb"><img src="{{ image.src | img_url: '200x' }}" alt="{{ image.alt }}"/></span>    
+        {% endif %}
+    {%endif%}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>  

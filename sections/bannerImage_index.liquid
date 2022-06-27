@@ -1,0 +1,97 @@
+ {% for block in section.blocks %}
+
+      {% if page.handle == block.settings.thepage %}
+	<div class="full_width">
+      <div class="image_text">
+        {% if block.settings.image != blank %}
+        <div class="small--hide image_part">
+          <img src="{{block.settings.image | img_url:'1024x'}}"/>
+        </div>
+        {% endif %}
+        {% if block.settings.mobimage != blank %}
+        <div class="medium-up--hide image_part">
+          <img src="{{block.settings.mobimage | img_url:'1024x'}}"/>
+        </div>
+        {% endif %}
+
+      </div>
+      <div class="text_part banner_text ree">
+        {% if block.settings.title != blank %}
+        <h2>{{block.settings.title}}</h2>
+        {% endif %}
+<!--         {% if block.settings.title != blank %}
+        {{block.settings.title}}
+        {% endif %} -->
+        
+        {% if block.settings.description != blank %}
+        <p>{{block.settings.description}}</p>
+        {% endif %}
+    </div>
+</div>
+	{% endif %}
+ {% endfor %} 
+      
+    <style>
+      
+     
+      
+      
+      
+</style>
+{% schema %}
+  {
+    "name": "Hero overlay science",
+    "settings": [
+		
+      ],
+      "blocks": [
+      {
+      "type": "select",
+      "name": "PAGE EXTRA FIELDS",
+      "settings": [
+      {
+      "id": "thepage",
+      "type": "page",
+      "label": "ASSIGN PAGE FOR DATA"
+      },{
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+	  {
+        "type": "image_picker",
+        "id": "mobimage",
+        "label": "Mobile Image"
+      },
+		{
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+	{
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub Title"
+      },
+	{
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      }]
+}
+],
+
+"presets": [{
+        "name": "Hero overlay science",
+        "category": "Science"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+

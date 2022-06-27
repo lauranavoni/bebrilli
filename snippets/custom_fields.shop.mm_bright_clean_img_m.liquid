@@ -1,0 +1,8 @@
+{% if shop.metafields.custom_fields["mm_bright_clean_img_m"] != blank %}
+  <div class="custom-field custom-field__mm-bright-clean-img-m custom-field__type--image">
+    <h3 class="custom-field--title">mm_bright_clean_img_m</h3>
+    <div class="custom-field--value">  
+      {% render 'cf-image' with image: shop.metafields.custom_fields["mm_bright_clean_img_m"] %}
+    </div>
+  </div>
+{% endif %}

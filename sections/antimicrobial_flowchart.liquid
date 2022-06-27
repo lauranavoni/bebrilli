@@ -1,0 +1,141 @@
+<div class= "parentcolor_flowchart">
+  <div class="inner content_width content_width_flowchart">
+    {% if section.settings.title != blank %}
+      <h1>{{section.settings.title}}</h1>
+    {% endif %}
+    {% if section.settings.subtitle != blank %}
+      <p class="paddingp">{{section.settings.subtitle}}</p>
+    {% endif %}
+    <div class= "flexcontent_virus">
+      <div class= "flexsubsection">
+        <div class="container container_4 rightfloat">
+  		 {%- assign img_url = section.settings.image_bc_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        <img src= "{{ section.settings.image_bc_1 | img_url: '700x300' }}">
+       
+          <div class="centered middlealign" ><h1 style = "color:white;"><small>{{section.settings.bright}}</small></h1></div>
+
+        </div>
+      </div>
+       <div class= "flexsubsection">
+         <div class="container container_4 leftfloat">
+           {%- assign img_url = section.settings.image_uv_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        <img src= "{{ section.settings.image_uv_1 | img_url: '700x300' }}">
+       
+           <div class="centered middlealign"><h1><small>{{section.settings.uv}}</small></h1></div>
+
+        </div>
+      </div>
+    </div>  
+{% for block in section.blocks %}
+   
+    <div class= "overlay">
+      <div class= "overlaydiv"><h1 class= "customh1">{{block.settings.title_bc}}</h1></div>
+      <div class= "flexcontent_virus">
+      <div class= "flexsubsection">
+        <div class="container rightfloat">
+  		 {%- assign img_url = block.settings.image_bc | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        <img src= "{{ block.settings.image_bc | img_url: '700x300' }}">
+       
+          <div class="centered" ><span style = "color:white;"><small>{{block.settings.text_bc}}</small></span></div>
+
+        </div>
+      </div>
+       <div class= "flexsubsection">
+         <div class="container leftfloat">
+           {%- assign img_url = block.settings.image_uv | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        <img src= "{{ block.settings.image_uv | img_url: '700x300' }}">
+       
+           <div class="centered"><small>{{block.settings.text_uv}}</small></div>
+
+        </div>
+      </div>
+    </div> 
+    </div>
+{% endfor %}
+    
+    
+    
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Flowchart",
+    "presets": [
+      {
+        "name": "Press Items",
+        "category": "Content"
+      }
+    ],
+    "settings": [
+	  {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Sub-Title"
+      },
+	  {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }, {
+        "type": "text",
+        "id": "bright",
+        "label": "Bright Clean"
+      }, {
+        "type": "text",
+        "id": "uv",
+        "label": "UVC Light"
+      }
+	,{
+        "type": "image_picker",
+        "id": "image_bc_1",
+        "label": "Image for BrightC"
+      },
+	{
+        "type": "image_picker",
+        "id": "image_uv_1",
+        "label": "Image for UV"
+      }
+    ],
+    "blocks": [
+    {
+    "type": "select",
+    "name": "PAGE EXTRA FIELDS",
+    "settings": [
+     {
+        "type": "text",
+        "id": "title_bc",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "text_bc",
+        "label": "Text for Bright",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },
+	 {
+        "type": "image_picker",
+        "id": "image_bc",
+        "label": "Image for BrightC"
+      },{
+        "type": "richtext",
+        "id": "text_uv",
+        "label": "Text for UV",
+        "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+      },     
+     {
+        "type": "image_picker",
+        "id": "image_uv",
+        "label": "Image for UV"
+      }]
+    }
+    ],
+    "presets": [{
+        "name": "Flowchart",
+        "category": "Content"
+    }]
+  }
+{% endschema %}

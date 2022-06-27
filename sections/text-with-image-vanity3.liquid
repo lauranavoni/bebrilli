@@ -1,0 +1,131 @@
+<div class="second-section" style="    margin-right:auto;margin-left:auto;margin-bottom: 80px;margin-top:-210px;">
+  
+  <div class="row11 image-with-text__text">
+  
+  <div class="column11 pad1 immg"><h1 style="width: 400px;margin-left: auto;margin-right: auto;font-weight:600;font-family:'Khand';font-size:50px !important;text-align:center;">{{ section.settings.title | escape }}</h1>
+ 
+  {{ section.settings.text }}
+
+    </div>
+    <div class="column11 what lets  immg"> <img src="{{section.settings.image | img_url: 'master' }}" style="display:block;margin:auto;" height="60%" width="60%"></div>
+</div>
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+<style>
+  .second-section{
+   width:80%; 
+    
+  }
+.lets{
+ margin-top: 245px !important; 
+}
+  .what{
+    
+     margin-top: 15%;
+  }
+  .pad1{
+   margin-top: 28%; 
+    
+  }
+  .column11 {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row11:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  
+  @media screen and (max-width: 1100px) {
+    .lets{
+      
+      margin-top:0px !important;
+    }}
+  
+  @media screen and (max-width: 600px) {
+  .column11 {
+    width: 100%;
+  }
+  
+    .lets{
+      margin-top: 0px !important;  
+    }
+  
+    
+    .column11 p{
+  text-align:center; 
+   padding-left: 20px !important;
+    padding-right: 20px !important;
+    color: black;
+   
+ }div#shopify-section-product-press {
+    margin-top: 0px !important;
+}
+    .p1,h1 {
+      margin-top:65%;
+     width:100% !important; 
+    }
+}
+  
+  
+   @media screen and (max-width: 900px) {
+     
+     
+    
+   }
+  
+ .column11 p{
+  text-align:center; 
+   padding-left: 70px;
+    padding-right: 70px;
+    color: black;padding-left:200px;padding-right:200px;
+   
+ }
+  
+  
+  
+</style>
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,215 @@
+
+<div class="main11" style="height:100%;margin-bottom:150px;position:relative;
+height:100%;max-height:100%;max-width:100%;background-image:url('https://cdn.shopify.com/s/files/1/0033/6474/9361/files/New_Project_3_1_1_1.png?v=1631031126');background-size:75%;background-repeat:no-repeat;width:100%;">
+
+<div class="row" style="padding-top:60px;">
+  <div class="column1">
+  <img src="{{section.settings.image | img_url: 'master' }}" height=75% width=75%>
+  
+  </div>
+  <div class="column" ><h1 class="head1" style="text-align:left;" >{{ section.settings.title }}</h1>
+<p class="p7">   {{ section.settings.text }}
+</p></div>
+</div>
+  <div class="row" style="padding-bottom:58px;">
+<div class="column3">
+  <img src="{{section.settings.image1 | img_url: 'master' }}" height=70% width=70%>
+  
+  </div>
+  <div class="column2" ><h1 class="han head1" style="text-align:right;" >{{ section.settings.title1 }}</h1>
+<p class="p7">   {{ section.settings.text1 }}
+</p></div>
+  </div></div>
+
+
+<style>
+    .column p {
+  padding-right:200px !important;
+    
+}
+   .column2 p{
+    padding-left:200px; 
+   }
+    
+
+  h1{
+    
+    font-weight:600;font-family:'Khand';font-size:50px !important;
+    
+  }
+  
+.column {
+text-align:left;
+float:right;
+  width: 40%;
+margin-top:10%;position: relative;
+    z-index: 3;
+}
+.column1 {
+  float:left;
+  width: 60% !important;
+}
+.column1 img{
+left:13% !important;
+position:relative;
+
+}.column2 {
+text-align:right;
+  float:left;
+  width: 40%;
+  margin-top:10%;
+}.column3 {
+  float:right;
+  width: 60%;
+  margin-top:-15%;
+}.column3 img{
+left:12%;
+position:relative;
+z-index:2;
+}
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+.row{
+
+  display:table !important;
+
+}
+@media screen and (max-width: 600px) {
+  .column2 p{
+    
+   padding-left: 0px !important; 
+    
+  }
+  .main11{
+   background-repeat:repeat !important;
+    
+  }
+  .column {
+    text-align: left;
+    float: right;
+    width: 100% !important;
+
+    padding:20px !important;
+}
+  .column3{
+     width: 100% !important;
+    margin-top:0px;
+    
+  }
+  .column2{
+    text-align: left;
+    float: right;
+    width: 100% !important;
+
+    padding:20px !important;
+    
+  }
+  
+  .han{
+    
+    
+    
+   text-align:left !important; 
+    
+  }
+  .column p {
+  padding-right:0px !important;
+    font-size:16px !important;
+}
+  .p7 p{
+   padding-right:0px !important;
+    font-size:16px !important;
+  }
+    .column1{
+      max-width: 100% !important;
+    margin-left: 0px !important;
+    width: 100% !important;
+    }
+ 
+}
+  @media screen and (min-width: 600px) and (max-width:1024px) {
+  .column p {
+  padding-right:30px !important;
+    font-size:15px !important;
+}
+      .column2 p {
+  padding-left:30px !important;
+    font-size:15px !important;
+}
+    
+    .head1{
+          MARGIN-TOP: -35PX;
+     font-size:30px !important;
+      
+      
+      
+    }
+    
+  }
+  
+  
+  
+ @media (min-width:1025px) and (max-width:1200px){
+  .column p {
+  padding-right:40px !important;
+    
+}
+   .column2 p{
+    padding-left:40px !important; 
+     
+     
+   }
+  }
+</style>
+
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },{
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },{
+        "type": "text",
+        "id": "title1",
+        "label": "Second_Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },
+      {
+        "type": "richtext",
+        "id": "text1",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

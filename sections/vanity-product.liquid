@@ -1,0 +1,132 @@
+<div class="second-section" style=" margin-right:auto;margin-left:auto; width:80%;  margin-bottom: 80px;margin-top:-150px;">
+  
+  <div class="row11">
+  
+  <div class="column111 pad3 immg texttt1"><h1 style="font-weight:600;font-family:'Khand';font-size:50px !important;text-align:center;">{{ section.settings.title | escape }}</h1>
+     <h4 style="font-family:'Khand';font-size:28px !important;color:black;margin-top:5px;text-align:center;">{{ section.settings.title1 }}</h4>
+<p class="p7" style="text-align:center;">   {{ section.settings.text }}
+</p> <center><a href={{section.settings.button_url3}}><span class="button outline large" style="margin-bottom:40px;padding-left:40px;padding-right:40px;padding-top:8px;padding-bottom:5px;font-family:'Khand';font-size:20px !important;border-radius:5px;">
+                {{ section.settings.button_label }}
+         </span></a></center>
+    </div>
+    <div class="column111 what immg"> <img class="image-image1" src="{{section.settings.image | img_url: 'master' }}" style="display:block;margin:auto;" width="90%" height="90%"></div>
+</div>
+  
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+</div>
+
+<style>
+  
+  
+  .what{
+    
+     margin-top: 15%;
+  }
+  .pad3{
+   margin-top: 25%; 
+    
+  }
+  .column111 {
+  float: right;
+  width: 50% ;
+}
+
+/* Clear floats after the columns */
+.row11:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  
+  
+  @media screen and (max-width: 600px) {
+    
+      .texttt1 {
+    margin-top: -37%;
+}
+
+
+    
+  .column111 {
+    width: 100% !important;
+  }
+ 
+    .column111 p{
+  text-align:center; 
+   padding-left: 20px !important;
+    padding-right: 20px !important;
+    color: black;
+   
+ }
+    .image-image1{
+     height:100%;
+      width:100%;
+    }
+    
+}
+ 
+  
+ .column111 p{
+  text-align:center; 
+   padding-left: 70px;
+    padding-right: 70px;
+    color: black;
+   
+ }
+  
+  
+  
+</style>
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [{
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "url",
+        "id": "button_url3",
+        "label": "Button URL"
+      },
+
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },{
+        "type": "text",
+        "id": "title1",
+        "label": "Sub_Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

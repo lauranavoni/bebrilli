@@ -1,0 +1,8 @@
+{% if shop.metafields.custom_fields["mega_menu_bright_clean_img"] != blank %}
+  <div class="custom-field custom-field__mega-menu-bright-clean-img custom-field__type--image">
+    <h3 class="custom-field--title">Mega Menu Bright Clean img</h3>
+    <div class="custom-field--value">  
+      {% render 'cf-image' with image: shop.metafields.custom_fields["mega_menu_bright_clean_img"] %}
+    </div>
+  </div>
+{% endif %}

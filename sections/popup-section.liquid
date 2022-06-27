@@ -1,0 +1,234 @@
+<div class="popuppage" style="background:url({{section.settings.image | img_url: 'master' }});background-repeat: no-repeat;
+   height:100%;
+    background-size: 100%;
+    width: 100% !important;" > 
+  
+<div class="bgg">
+   {% assign list_id = settings.newsletter_list_id %}
+        <form id="email_popup_signup" style="max-width: 100%;" class="klaviyo_styling klaviyo_gdpr_embed_{{ list_id }}" action="https://manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="https://manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+       
+            <div class="logo" style="text-align: center;">
+              <img src="{{ section.settings.url }}" width="30%" height="10%" alt="Brilli">
+            </div>
+            <h2 style="    text-align: center;">{{ section.settings.title }}</h2>
+            <p class="message" style="    text-align: center;">{{ section.settings.text }}</p>
+            <div class="klaviyo_field_group" style="border: 2px solid black;
+    color: black !important;    border-radius: 6px;
+">
+              <input class="required email" type="email" value="" name="email" id="k_id_email" placeholder="Email">
+            </div>
+            <div class="klaviyo_form_actions" style="    margin-top: 20px;">
+                <button type="submit" class="klaviyo_submit_button button" style="    width: 100%;    height: 60px!important;
+    line-height: 40px!important;
+    padding: 0!important;
+    position: relative;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .025em;max-width: 100%;margin-bottom:20px;background: black;font-size: 22px;
+               ">Sign up</button>
+             <a href="{{ section.settings.url1 }}"> <span type="submit" class="klaviyo_submit_button button" style="    width: 100%;    height: 60px!important;
+    line-height: 40px!important;
+  
+    position: relative;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: .025em;margin-bottom:-25px;max-width: 100%;background: black;font-size: 22px;
+               ">{{ section.settings.button }}</span></a>
+             
+            </div>
+            <input type="hidden" name="g" value="{{ list_id }}">
+          <input type="hidden" name="$fields" value="$consent">
+          <input type="hidden" name="$list_fields" value="$consent">
+          <div class="klaviyo_messages" style="
+    text-align: center;
+">
+            <div class="success_message" style="display:none;
+    text-align: center;
+"></div>
+            <div class="error_message" style="display:none;"></div>
+          </div> 
+        </form>
+      
+  <img class="image12" src="{{section.settings.image1 | img_url: 'master' }}" />
+  </div>
+  
+  
+  
+  
+</div>
+
+  <script type="text/javascript">
+         KlaviyoSubscribe.attachToForms('#email_popup_signup', {
+          hide_form_on_success: true,
+          success_message: "{{ section.settings.thankyou }}",
+          extra_properties: {
+             $source: '$embed',
+             $method_type: "Klaviyo Form",
+             $method_id: 'embed',
+             $consent_version: 'Embed default text'
+          }
+         });
+        </script>
+{% schema %}
+  {
+    "name": "Image with text",
+    "settings": [
+{
+        "type": "url",
+        "id": "url",
+        "label": "Logo Image url"
+      },
+    {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },  {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      },{
+        "type": "text",
+        "id": "button",
+        "label": "Button Text",
+        "default": "Shop Now"
+      },
+{
+"type": "url",
+        "id": "url1",
+        "label": "Button link"
+
+}
+
+    ],
+    "presets": [
+      {
+        "name": "Image with text",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
+
+
+<style>
+ img.image12 {
+    display: none;
+}
+  input#k_id_email {
+    background: white;
+}
+ p:nth-child(4) {
+    color: black !important;
+    font-weight: 400 !important;    text-align: center;
+}
+  
+  .button.hover, .button:active, .button:focus, .button:hover {
+    color: #000;
+    background-color: #fff !important;
+    border: 2px solid black;
+  }
+.bgg{
+  padding: 60px 108px 78px;
+  background:rgb(255,255,255,0.8);
+  width:48%;
+
+  margin-right:auto;
+}
+  @media (max-width:1100px) {
+          .klaviyo_condensed_styling .klaviyo_form_actions, .klaviyo_styling .klaviyo_form_actions {
+    text-align: center;
+}
+     .popuppage {background-size: cover !important;
+       background-position: bottom !important;
+     
+     
+     
+     }
+        .bgg{
+      width:100% !important;padding: 0px !important;
+    
+  }
+    .klaviyo_field_group {
+    margin: 10px;
+}span.klaviyo_submit_button.button {
+ max-width: 95% !important;
+    margin: 10px;margin-bottom:25px !important;
+}button.klaviyo_submit_button.button {
+  
+    width: 95% !important;
+
+}.klaviyo_field_group {
+    width: 95%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+    
+  }
+    @media (max-width:800px) {
+      .klaviyo_condensed_styling .klaviyo_form_actions, .klaviyo_styling .klaviyo_form_actions {
+    text-align: center;
+}
+     .popuppage {background-size: cover !important;
+       background-position: bottom !important;
+     
+     
+     
+     }
+        .bgg{
+      width:100% !important;padding: 0px !important;
+    
+  }
+    .klaviyo_field_group {
+    margin: 10px;
+}span.klaviyo_submit_button.button {
+ max-width: 95% !important;
+    margin: 10px;margin-bottom:25px !important;
+}
+    }
+  
+  @media (max-width:600px) {
+    img.image12 {
+    display: flex;
+}
+    .popuppage{
+    background: white !important;
+    background-repeat: no-repeat  !important;
+    height: 100% !important;
+    background-size: 100% !important;
+    width: 100% !important !important;
+  }
+    .bgg{
+      width:100% !important;padding: 0px !important;
+    
+  }
+    .klaviyo_field_group {
+    margin: 10px;
+}span.klaviyo_submit_button.button {
+ max-width: 95% !important;
+    margin: 10px;margin-bottom:25px !important;
+}
+  }
+  
+  
+</style>
+
+{% javascript %}
+{% endjavascript %}
+     
+            
+          

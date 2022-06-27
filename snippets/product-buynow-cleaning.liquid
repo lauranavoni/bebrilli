@@ -1,0 +1,47 @@
+<div class="cleaning-button" style="width:100%;height:200px;">
+<a
+  type="button"
+  name="add"
+ href="https://www.amazon.com/Catalina-Lighting-20231-000-Integrated-Disinfections/dp/B07FQLWBL1"
+  target="_blank"
+  class="button large buy-now"
+  data-alternative-url
+>
+  <span class="button-text" style = "text-transform:none;font-weight: 500;">
+   Buy now at Amazon.com
+  </span>
+</a>
+  <br><br>
+  <a
+  type="button"
+  name="add"
+ href="https://www.wayfair.com/lighting/pdp/brilli-wellness-lighting-bright-clean-led-retrofit-recessed-lighting-kit-w001182742.html"
+  target="_blank"
+  class="button large buy-now"
+  data-alternative-url
+>
+  <span class="button-text" style = "text-transform:none;font-weight: 500;">
+   Buy now at Wayfair.com
+  </span>
+</a>
+  <br><br>
+  <a
+  type="button"
+  name="add"
+ href="https://www.homedepot.com/p/5-6-in-White-Integrated-LED-Recessed-Ceiling-Light-Retrofit-Remodel-Kit-with-Antibacterial-Disinfection-Mode-3000K-20231-000/308249472"
+  target="_blank"
+  class="button large buy-now"
+  data-alternative-url
+>
+  <span class="button-text" style = "text-transform:none;font-weight: 500;">
+   Buy now at HomeDepot.com
+  </span>
+</a>
+</div>
+<script type="text/javascript">
+  window.variantLinks={
+    {%- for _v in product.variants -%}
+      "{{ _v.id }}": {{ _v.metafields.custom_fields.alternative_url | json }},
+    {%- endfor -%}
+  }
+</script>

@@ -1,0 +1,180 @@
+{% for block in section.blocks %}
+  {% if product.handle == block.settings.theproduct %}
+<div class="second-section" id="bClean">
+  
+  <div class="row11 image-with-text__text">
+
+ 	 <div class="textafter column11 text_value immg texttt"><h1>{{ block.settings.title | replace: '-', '<br>' }}</h1>
+     <h4>{{ block.settings.title1 }}</h4>
+	<p class="p7" style="text-align:center;">   {{ block.settings.text }}
+	</p>
+    </div>
+    <div class="column11 approved immg imgbefore"> <img class="image-image1" src="{{block.settings.image | img_url: 'master' }}" style="display:block;margin:auto;" width="90%" height="90%"></div>
+
+</div>
+  
+</div>
+{%endif%}
+{%endfor%}
+<style>
+  
+    #bClean{ margin-right:auto;margin-left:auto;width:80%;   margin-bottom: 80px;}
+  #shopify-section-approved2_brightClean h1{font-size:48px !important;font-weight:500;color:black;text-align:center;}
+  #shopify-section-approved2_brightClean h4{color:#755a9c;font-family:'Khand';font-size:28px !important;margin-top:5px;text-align:center;}
+
+  
+  
+  
+  h1 small {
+    font-size: 28px;
+    margin-bottom: -3px;
+}
+ 
+   .text_value{
+   margin-top: 6%; 
+    
+  }
+  .column11 {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row11:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  
+  
+  @media screen and (max-width: 600px) {
+    
+    #bClean{width:90%;   margin-bottom: 80px;}
+    .textafter{order:2;}
+    .imgbefore{order:1;}
+    #shopify-section-approved2_brightClean h1{font-size:40px !important;}
+      #shopify-section-approved2_brightClean h4{font-size:20px !important;}
+      #shopify-section-approved2_brightClean p{padding-left:0 !important;padding-right:0 !important;}
+    #shopify-section-approved2_brightClean .image-with-text__text{display: flex; flex-flow: column;}
+    
+    
+    
+    .button{
+     padding-left:20px !important;
+      padding-right:20px !important;
+      
+    }
+    
+    .texttt{
+     margin-top: 0%; 
+      
+    }
+    
+    
+  .column11 {
+    width: 100% !important;
+  }
+   
+    .column11 p{
+  text-align:center; 
+   padding-left: 20px !important;
+    padding-right: 20px !important;
+    color: black;
+   
+ }
+    .image-image1{
+     height:100%;
+      width:100%;
+      
+    }
+    
+}
+  @media screen and (max-width: 900px){
+    
+  
+  }
+  
+  
+    @media screen and (max-width: 601px) {
+            .immg {
+    width: 100% !important;
+            }}
+  
+ 
+    @media screen and (max-width: 1101px) {
+      
+        .immg {
+    width: 100% !important;
+  }
+    }
+ 
+ .column11 p{
+  text-align:center; 
+   padding-left: 70px;
+    padding-right: 70px;
+    color: black;
+   
+ }
+  
+  
+  
+</style>
+{% schema %}
+  {
+    "name": "BrightClean2 Lab",
+    "settings": [
+					
+    ],
+"blocks": [
+    {
+    "type": "select",
+    "name": "PRODUCT SECTION",
+    "settings": [
+    {
+    "id": "theproduct",
+    "type": "product",
+    "label": "ASSIGN PRODUCT FOR DATA"
+    },
+	{
+        "type": "text",
+        "id": "button_label",
+        "label": "Button Label"
+      },
+      {
+        "type": "url",
+        "id": "button_url2",
+        "label": "Button URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Image with text"
+      },{
+        "type": "text",
+        "id": "title1",
+        "label": "Sub_Heading",
+        "default": "Image with text"
+      },
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "Text",
+        "default": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>"
+      }	
+	]
+    }
+    ],
+    "presets": [
+      {
+        "name": "BrightClean2 Lab",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}
